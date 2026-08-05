@@ -20,3 +20,11 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     trailspace.trim()
   end,
 })
+
+
+-- Select all in Normal mode
+vim.keymap.set('n', '<C-a>', 'ggVG', { desc = 'Select all text', silent = true })
+-- Select all in Insert mode (exits to normal mode, selects all)
+vim.keymap.set('i', '<C-a>', '<Esc>ggVG', { desc = 'Select all text', silent = true })
+-- Select all in Visual mode
+vim.keymap.set('v', '<C-a>', '<Esc>ggVG', { desc = 'Select all text', silent = true })
