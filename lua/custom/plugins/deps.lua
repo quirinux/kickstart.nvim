@@ -9,6 +9,7 @@ require('mini.splitjoin').setup()
 require('mini.cursorword').setup()
 require('mini.indentscope').setup()
 require('mini.tabline').setup()
+require('mini.trailspace').setup()
 
 require('mini.hipatterns').setup({
   highlighters = {
