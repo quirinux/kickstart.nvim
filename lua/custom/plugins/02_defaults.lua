@@ -32,6 +32,7 @@ vim.keymap.set('i', '<C-a>', '<Esc>ggVG', { desc = 'Select all text', silent = t
 vim.keymap.set('v', '<C-a>', '<Esc>ggVG', { desc = 'Select all text', silent = true })
 
 -- better tabs shorcuts
-vim.keymap.set('n', '<leader>c', '<cmd>bdelete<CR>', { desc = '[C] current buffer tab', silent = true })
+vim.keymap.set('n', '<leader>c', '<cmd>bdelete<CR>', { desc = '[C]lose current buffer tab', silent = true })
 vim.keymap.set('n', '<leader>[', '<cmd>bprevious<CR>', { desc = 'Prev buffer tab', silent = true })
 vim.keymap.set('n', '<leader>]', '<cmd>bnext<CR>', { desc = 'Next buffer tab', silent = true })
+vim.keymap.set('n', '<leader>w', '<cmd>set nowrap!<CR>', { desc = 'Word Wrap toggle', silent = true })
