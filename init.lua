@@ -733,7 +733,9 @@ do
   --  See `:help lsp-config` for information about keys and how to configure
   ---@type table<string, vim.lsp.Config>
   local servers = {
-    -- clangd = {},
+    clangd = {},
+    rust_analyzer = {},
+    gopls = { 'goimports', 'gofmt' },
     -- gopls = {},
     -- pyright = {},
     -- tsc = {},
@@ -744,7 +746,7 @@ do
     -- But for many setups, the LSP (`rust_analyzer`) will work just fine
     -- rust_analyzer = {},
 
-    stylua = {}, -- Used to format Lua code
+    -- stylua = {}, -- Used to format Lua code
 
     -- Special Lua Config, as recommended by neovim help docs
     lua_ls = {
@@ -804,6 +806,8 @@ do
   local ensure_installed = vim.tbl_keys(servers or {})
   vim.list_extend(ensure_installed, {
     -- You can add other tools here that you want Mason to install
+    -- 'clangd',
+    -- 'stylua',
   })
 
   require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -828,6 +832,9 @@ do
       local enabled_filetypes = {
         -- lua = true,
         -- python = true,
+        c = true,
+        rust = true,
+        go = true,
       }
       if enabled_filetypes[vim.bo[bufnr].filetype] then
         return { timeout_ms = 500 }
@@ -840,7 +847,9 @@ do
     },
     -- You can also specify external formatters in here.
     formatters_by_ft = {
-      -- rust = { 'rustfmt' },
+      rust = { 'rustfmt' },
+      lua = { 'stylua' },
+      c = { 'clang_format' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
