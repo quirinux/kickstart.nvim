@@ -833,6 +833,7 @@ do
         -- lua = true,
         -- python = true,
         c = true,
+        cpp = true,
         rust = true,
         go = true,
       }
@@ -850,6 +851,7 @@ do
       rust = { 'rustfmt' },
       lua = { 'stylua' },
       c = { 'clang_format' },
+      cpp = { 'clang_format' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
